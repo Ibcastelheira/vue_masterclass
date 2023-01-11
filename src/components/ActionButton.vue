@@ -9,19 +9,27 @@
 <script>
 export default {
   name: 'ActionButton',
-  props: ["text"],
-  data() {
-    return {
-      primary: true,
-      secondary: false
-    }
+  props: {
+    text: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: false,
+      default: "primary",
+      validator (value) {
+        return ["primary", "secondary"].includes(value);
+      },
+    },
   },
   computed: {
     btnClass() {
-      return {primary: this.primary, secondary: this.secondary}
+      return {
+        [this.type]: true
+      }
     }
   },
-
 }
 </script>
 
@@ -35,6 +43,6 @@ button {
 }
 
 .secondary {
-  @apply bg-transparent text-blue-color-1 hover:text-blue-color-2 hover:text-white;
+  @apply bg-transparent text-blue-color-1 hover:bg-blue-color-2 hover:text-white;
 }
 </style>

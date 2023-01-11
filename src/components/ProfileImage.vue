@@ -9,7 +9,6 @@
 <script>
 export default {
   name: 'ProfileImage',
-
   data () {
     return {
       imgLink: "https://i.pinimg.com/originals/cc/24/12/cc2412a38456d2b5bf39ba6ce9d0d677.jpg"
